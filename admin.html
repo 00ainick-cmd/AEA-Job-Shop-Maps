@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEA Career Finder - Admin</title>
+  <style>
+    :root {
+      --color-primary: #1a365d;
+      --color-primary-light: #2c5282;
+      --color-accent: #ecc94b;
+      --color-success: #38a169;
+      --color-error: #e53e3e;
+      --color-bg: #f7fafc;
+      --color-white: #ffffff;
+      --color-border: #e2e8f0;
+      --color-text: #2d3748;
+      --color-text-light: #718096;
+      --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family);
+      font-size: 14px;
+      color: var(--color-text);
+      line-height: 1.6;
+      background: var(--color-bg);
+      min-height: 100vh;
+    }
+
+    .header {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header h1 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .header a {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .header a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--color-white);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--color-primary);
+    }
+
+    .card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 16px 0 8px;
+      color: var(--color-text);
+    }
+
+    .card p {
+      color: var(--color-text-light);
+      margin-bottom: 12px;
+    }
+
+    .upload-zone {
+      border: 2px dashed var(--color-border);
+      border-radius: 8px;
+      padding: 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 16px;
+    }
+
+    .upload-zone:hover {
+      border-color: var(--color-primary-light);
+      background: #f8fafc;
+    }
+
+    .upload-zone.dragover {
+      border-color: var(--color-success);
+      background: #f0fff4;
+    }
+
+    .upload-zone input {
+      display: none;
+    }
+
+    .upload-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .upload-text {
+      font-size: 16px;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .upload-hint {
+      font-size: 13px;
+      color: var(--color-text-light);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-light);
+    }
+
+    .btn-success {
+      background: var(--color-success);
+      color: var(--color-white);
+    }
+
+    .btn-success:hover {
+      background: #2f855a;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .status {
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-top: 16px;
+      display: none;
+    }
+
+    .status.success {
+      background: #c6f6d5;
+      color: #22543d;
+      display: block;
+    }
+
+    .status.error {
+      background: #fed7d7;
+      color: #742a2a;
+      display: block;
+    }
+
+    .preview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 16px;
+    }
+
+    .preview-table th,
+    .preview-table td {
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .preview-table th {
+      background: var(--color-bg);
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+
+    .preview-table tr:hover {
+      background: #f8fafc;
+    }
+
+    .preview-container {
+      max-height: 400px;
+      overflow: auto;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .stat-box {
+      background: var(--color-bg);
+      padding: 16px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .stat-box .value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .stat-box .label {
+      font-size: 12px;
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .workflow-steps {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .workflow-step {
+      flex: 1;
+      padding: 16px;
+      background: var(--color-bg);
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .workflow-step .step-number {
+      width: 32px;
+      height: 32px;
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .workflow-step h4 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .workflow-step p {
+      font-size: 12px;
+      color: var(--color-text-light);
+      margin: 0;
+    }
+
+    .code-block {
+      background: #1a202c;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 6px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .workflow-steps {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>AEA Career Finder - Admin</h1>
+    <a href="index.html">View Public Map</a>
+  </header>
+
+  <div class="container">
+    <!-- Workflow Overview -->
+    <div class="card">
+      <h2>Data Update Workflow</h2>
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="step-number">1</div>
+          <h4>Collect Data</h4>
+          <p>Send Google Form to members</p>
+        </div>
+        <div class="workflow-step">
+          <div class="step-number">2</div>
+          <h4>Export CSV</h4>
+          <p>Download from Google Sheets</p>
+        </div>
+        <div class="workflow-step">
+          <div class="step-number">3</div>
+          <h4>Upload Here</h4>
+          <p>Process and preview data</p>
+        </div>
+        <div class="workflow-step">
+          <div class="step-number">4</div>
+          <h4>Deploy</h4>
+          <p>Copy JSON to server</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="card">
+      <h2>Upload CSV Data</h2>
+      <p>Upload a CSV file exported from Google Sheets. The file should include the required columns.</p>
+
+      <div class="upload-zone" id="uploadZone">
+        <input type="file" id="csvInput" accept=".csv">
+        <div class="upload-icon">📄</div>
+        <div class="upload-text">Drop CSV file here or click to browse</div>
+        <div class="upload-hint">Accepts .csv files from Google Sheets export</div>
+      </div>
+
+      <div class="status" id="uploadStatus"></div>
+    </div>
+
+    <!-- Preview Section -->
+    <div class="card hidden" id="previewSection">
+      <h2>Data Preview</h2>
+
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-box">
+          <div class="value" id="previewTotal">0</div>
+          <div class="label">Total Shops</div>
+        </div>
+        <div class="stat-box">
+          <div class="value" id="previewHiring">0</div>
+          <div class="label">Hiring</div>
+        </div>
+        <div class="stat-box">
+          <div class="value" id="previewOpenings">0</div>
+          <div class="label">Job Openings</div>
+        </div>
+        <div class="stat-box">
+          <div class="value" id="previewStates">0</div>
+          <div class="label">States</div>
+        </div>
+      </div>
+
+      <div class="preview-container">
+        <table class="preview-table" id="previewTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Hiring</th>
+              <th>Openings</th>
+              <th>Positions</th>
+            </tr>
+          </thead>
+          <tbody id="previewBody">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-success" id="downloadJson">Download shops.json</button>
+        <button class="btn btn-primary" id="copyJson">Copy JSON to Clipboard</button>
+      </div>
+
+      <div class="status" id="downloadStatus"></div>
+    </div>
+
+    <!-- Required Columns Reference -->
+    <div class="card">
+      <h2>CSV Column Reference</h2>
+      <p>Your CSV should include these columns (order doesn't matter):</p>
+
+      <h3>Required Columns</h3>
+      <div class="code-block">name, type, address, city, state, zip, phone, email, website, contact, airport, memberSince, hiring</div>
+
+      <h3>Job-Seeker Columns (optional but recommended)</h3>
+      <div class="code-block">openingsCount, positionTypes, experienceLevel, benefits, companySize, specializations, shifts, salaryRange</div>
+
+      <h3>Example Row</h3>
+      <div class="code-block">Duncan Aviation,MRO,2000 S 16th St,Lincoln,NE,68502,402-475-2611,careers@duncanaviation.com,duncanaviation.aero,HR Department,LNK,1956,yes,15,"Avionics Tech; A&P Mechanic",Entry-level,"Relocation; Training; 401k",Large (50+),"Garmin; Collins","Day; Night",55000-85000</div>
+
+      <p style="margin-top: 16px;"><strong>Note:</strong> For columns with multiple values (positionTypes, benefits, etc.), separate items with semicolons (;).</p>
+    </div>
+
+    <!-- Command Line Instructions -->
+    <div class="card">
+      <h2>Alternative: Command Line Processing</h2>
+      <p>For full geocoding support, use the command line processor:</p>
+
+      <h3>1. Place your CSV file in the data folder:</h3>
+      <div class="code-block">data/raw/aea_members.csv</div>
+
+      <h3>2. Run the processor (with geocoding):</h3>
+      <div class="code-block">node scripts/process-csv.js</div>
+
+      <h3>3. Or skip geocoding (uses state centroids):</h3>
+      <div class="code-block">node scripts/process-csv.js --no-geocode</div>
+
+      <p style="margin-top: 16px;">The processor will generate <code>data/shops.json</code> with geocoded coordinates.</p>
+    </div>
+  </div>
+
+  <script>
+    // Simple CSV parser
+    function parseCSV(text) {
+      const lines = text.trim().split('\n');
+      const headers = parseCSVLine(lines[0]);
+      const records = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        const values = parseCSVLine(lines[i]);
+        if (values.length === headers.length) {
+          const record = {};
+          headers.forEach((header, index) => {
+            record[header.trim()] = values[index];
+          });
+          records.push(record);
+        }
+      }
+
+      return records;
+    }
+
+    function parseCSVLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+
+        if (char === '"') {
+          inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+          result.push(current.trim());
+          current = '';
+        } else {
+          current += char;
+        }
+      }
+
+      result.push(current.trim());
+      return result;
+    }
+
+    // State centroids for basic geocoding
+    const STATE_CENTROIDS = {
+      'AL': { lat: 32.806671, lng: -86.791130 },
+      'AK': { lat: 61.370716, lng: -152.404419 },
+      'AZ': { lat: 33.729759, lng: -111.431221 },
+      'AR': { lat: 34.969704, lng: -92.373123 },
+      'CA': { lat: 36.116203, lng: -119.681564 },
+      'CO': { lat: 39.059811, lng: -105.311104 },
+      'CT': { lat: 41.597782, lng: -72.755371 },
+      'DE': { lat: 39.318523, lng: -75.507141 },
+      'FL': { lat: 27.766279, lng: -81.686783 },
+      'GA': { lat: 33.040619, lng: -83.643074 },
+      'HI': { lat: 21.094318, lng: -157.498337 },
+      'ID': { lat: 44.240459, lng: -114.478828 },
+      'IL': { lat: 40.349457, lng: -88.986137 },
+      'IN': { lat: 39.849426, lng: -86.258278 },
+      'IA': { lat: 42.011539, lng: -93.210526 },
+      'KS': { lat: 38.526600, lng: -96.726486 },
+      'KY': { lat: 37.668140, lng: -84.670067 },
+      'LA': { lat: 31.169546, lng: -91.867805 },
+      'ME': { lat: 44.693947, lng: -69.381927 },
+      'MD': { lat: 39.063946, lng: -76.802101 },
+      'MA': { lat: 42.230171, lng: -71.530106 },
+      'MI': { lat: 43.326618, lng: -84.536095 },
+      'MN': { lat: 45.694454, lng: -93.900192 },
+      'MS': { lat: 32.741646, lng: -89.678696 },
+      'MO': { lat: 38.456085, lng: -92.288368 },
+      'MT': { lat: 46.921925, lng: -110.454353 },
+      'NE': { lat: 41.125370, lng: -98.268082 },
+      'NV': { lat: 38.313515, lng: -117.055374 },
+      'NH': { lat: 43.452492, lng: -71.563896 },
+      'NJ': { lat: 40.298904, lng: -74.521011 },
+      'NM': { lat: 34.840515, lng: -106.248482 },
+      'NY': { lat: 42.165726, lng: -74.948051 },
+      'NC': { lat: 35.630066, lng: -79.806419 },
+      'ND': { lat: 47.528912, lng: -99.784012 },
+      'OH': { lat: 40.388783, lng: -82.764915 },
+      'OK': { lat: 35.565342, lng: -96.928917 },
+      'OR': { lat: 44.572021, lng: -122.070938 },
+      'PA': { lat: 40.590752, lng: -77.209755 },
+      'RI': { lat: 41.680893, lng: -71.511780 },
+      'SC': { lat: 33.856892, lng: -80.945007 },
+      'SD': { lat: 44.299782, lng: -99.438828 },
+      'TN': { lat: 35.747845, lng: -86.692345 },
+      'TX': { lat: 31.054487, lng: -97.563461 },
+      'UT': { lat: 40.150032, lng: -111.862434 },
+      'VT': { lat: 44.045876, lng: -72.710686 },
+      'VA': { lat: 37.769337, lng: -78.169968 },
+      'WA': { lat: 47.400902, lng: -121.490494 },
+      'WV': { lat: 38.491226, lng: -80.954453 },
+      'WI': { lat: 44.268543, lng: -89.616508 },
+      'WY': { lat: 42.755966, lng: -107.302490 },
+      'BC': { lat: 53.726669, lng: -127.647621 },
+      'AB': { lat: 53.933271, lng: -116.576503 },
+      'ON': { lat: 51.253775, lng: -85.323214 },
+      'QC': { lat: 52.939916, lng: -73.549136 }
+    };
+
+    function getCoords(state) {
+      return STATE_CENTROIDS[state] || { lat: 39.8283, lng: -98.5795 };
+    }
+
+    function parseList(value) {
+      if (!value) return [];
+      return value.split(/[;]/).map(item => item.trim()).filter(item => item.length > 0);
+    }
+
+    function parseHiring(value) {
+      if (!value) return false;
+      const v = value.toString().trim().toLowerCase();
+      return v === 'true' || v === 'yes' || v === '1' || v === 'y';
+    }
+
+    function normalizeShopType(type) {
+      if (!type) return 'Repair Station';
+      const normalized = type.trim().toLowerCase();
+      if (normalized.includes('mro')) return 'MRO';
+      if (normalized.includes('oem')) return 'OEM';
+      if (normalized.includes('dealer') || normalized.includes('distributor')) return 'Dealer';
+      return 'Repair Station';
+    }
+
+    function normalizeWebsite(url) {
+      if (!url) return null;
+      url = url.trim();
+      if (!url) return null;
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        return `https://${url}`;
+      }
+      return url;
+    }
+
+    function formatPhone(phone) {
+      if (!phone) return null;
+      const digits = phone.replace(/\D/g, '');
+      if (digits.length === 10) {
+        return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+      }
+      if (digits.length === 11 && digits[0] === '1') {
+        return `(${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
+      }
+      return phone.trim() || null;
+    }
+
+    function processRecords(records) {
+      return records.map((record, index) => {
+        const coords = getCoords(record.state);
+        const openingsCount = record.openingsCount ? parseInt(record.openingsCount, 10) : null;
+
+        return {
+          id: index + 1,
+          name: record.name || 'Unknown',
+          type: normalizeShopType(record.type),
+          address: record.address || '',
+          city: record.city || '',
+          state: record.state || '',
+          zip: record.zip || '',
+          phone: formatPhone(record.phone),
+          email: record.email ? record.email.trim() : null,
+          website: normalizeWebsite(record.website),
+          contact: record.contact ? record.contact.trim() : null,
+          airport: record.airport ? record.airport.trim().toUpperCase() : null,
+          memberSince: record.memberSince ? parseInt(record.memberSince) : null,
+          hiring: parseHiring(record.hiring),
+          openingsCount: isNaN(openingsCount) ? null : openingsCount,
+          positionTypes: parseList(record.positionTypes),
+          experienceLevel: record.experienceLevel ? record.experienceLevel.trim() : null,
+          benefits: parseList(record.benefits),
+          companySize: record.companySize ? record.companySize.trim() : null,
+          specializations: parseList(record.specializations),
+          shifts: parseList(record.shifts),
+          salaryRange: record.salaryRange ? record.salaryRange.trim() : null,
+          lat: coords.lat,
+          lng: coords.lng
+        };
+      });
+    }
+
+    let processedData = null;
+
+    // File upload handling
+    const uploadZone = document.getElementById('uploadZone');
+    const csvInput = document.getElementById('csvInput');
+    const uploadStatus = document.getElementById('uploadStatus');
+    const previewSection = document.getElementById('previewSection');
+
+    uploadZone.addEventListener('click', () => csvInput.click());
+
+    uploadZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadZone.classList.add('dragover');
+    });
+
+    uploadZone.addEventListener('dragleave', () => {
+      uploadZone.classList.remove('dragover');
+    });
+
+    uploadZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadZone.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.name.endsWith('.csv')) {
+        handleFile(file);
+      } else {
+        showStatus('uploadStatus', 'Please upload a CSV file', 'error');
+      }
+    });
+
+    csvInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        handleFile(file);
+      }
+    });
+
+    function handleFile(file) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        try {
+          const text = e.target.result;
+          const records = parseCSV(text);
+
+          if (records.length === 0) {
+            showStatus('uploadStatus', 'No valid records found in CSV', 'error');
+            return;
+          }
+
+          const shops = processRecords(records);
+          const uniqueStates = [...new Set(shops.map(s => s.state))];
+          const hiringCount = shops.filter(s => s.hiring).length;
+          const totalOpenings = shops.reduce((sum, s) => sum + (s.openingsCount || 0), 0);
+
+          processedData = {
+            shops,
+            metadata: {
+              totalShops: shops.length,
+              uniqueStates: uniqueStates.length,
+              hiringCount,
+              totalOpenings,
+              lastUpdated: new Date().toISOString()
+            }
+          };
+
+          // Update preview
+          document.getElementById('previewTotal').textContent = shops.length;
+          document.getElementById('previewHiring').textContent = hiringCount;
+          document.getElementById('previewOpenings').textContent = totalOpenings;
+          document.getElementById('previewStates').textContent = uniqueStates.length;
+
+          const tbody = document.getElementById('previewBody');
+          tbody.innerHTML = shops.map(shop => `
+            <tr>
+              <td>${escapeHtml(shop.name)}</td>
+              <td>${escapeHtml(shop.type)}</td>
+              <td>${escapeHtml(shop.city)}</td>
+              <td>${escapeHtml(shop.state)}</td>
+              <td>${shop.hiring ? 'Yes' : 'No'}</td>
+              <td>${shop.openingsCount || '-'}</td>
+              <td>${shop.positionTypes.slice(0, 2).join(', ') || '-'}</td>
+            </tr>
+          `).join('');
+
+          previewSection.classList.remove('hidden');
+          showStatus('uploadStatus', `Successfully processed ${shops.length} shops!`, 'success');
+
+        } catch (error) {
+          console.error(error);
+          showStatus('uploadStatus', 'Error parsing CSV: ' + error.message, 'error');
+        }
+      };
+
+      reader.readAsText(file);
+    }
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function showStatus(elementId, message, type) {
+      const el = document.getElementById(elementId);
+      el.textContent = message;
+      el.className = 'status ' + type;
+    }
+
+    // Download/Copy buttons
+    document.getElementById('downloadJson').addEventListener('click', () => {
+      if (!processedData) return;
+
+      const json = JSON.stringify(processedData, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'shops.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      showStatus('downloadStatus', 'Downloaded shops.json - copy to data/ folder', 'success');
+    });
+
+    document.getElementById('copyJson').addEventListener('click', () => {
+      if (!processedData) return;
+
+      const json = JSON.stringify(processedData, null, 2);
+      navigator.clipboard.writeText(json).then(() => {
+        showStatus('downloadStatus', 'JSON copied to clipboard!', 'success');
+      }).catch(() => {
+        showStatus('downloadStatus', 'Failed to copy to clipboard', 'error');
+      });
+    });
+  </script>
+</body>
+</html>

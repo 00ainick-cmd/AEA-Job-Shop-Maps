@@ -1,0 +1,21 @@
+{
+  "name": "aea-shop-map",
+  "version": "1.0.0",
+  "description": "Interactive map of AEA member avionics repair shops across North America",
+  "main": "index.html",
+  "scripts": {
+    "process-data": "node scripts/process-csv.js",
+    "serve": "npx serve ."
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.0"
+  },
+  "keywords": [
+    "avionics",
+    "map",
+    "leaflet",
+    "aea"
+  ],
+  "author": "Aircraft Electronics Association",
+  "license": "ISC"
+}

@@ -1,0 +1,792 @@
+{
+  "shops": [
+    {
+      "id": 1,
+      "name": "Spencer Avionics Inc.",
+      "type": "Repair Station",
+      "address": "1979 330th St",
+      "city": "Spencer",
+      "state": "IA",
+      "zip": "51301",
+      "phone": "(712) 262-2364",
+      "email": "avionicsinspencer@gmail.com",
+      "website": "https://spenceravionics.com",
+      "contact": "Quint De Groot",
+      "airport": "SPW",
+      "memberSince": 1978,
+      "hiring": true,
+      "openingsCount": 2,
+      "positionTypes": [
+        "Avionics Technician",
+        "Installer"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Training",
+        "Health Insurance"
+      ],
+      "companySize": "Small (1-10)",
+      "specializations": [
+        "Garmin",
+        "Avidyne"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "45000-60000",
+      "lat": 42.011539,
+      "lng": -93.210526
+    },
+    {
+      "id": 2,
+      "name": "Duncan Aviation",
+      "type": "MRO",
+      "address": "2000 S 16th St",
+      "city": "Lincoln",
+      "state": "NE",
+      "zip": "68502",
+      "phone": "(402) 475-2611",
+      "email": "careers@duncanaviation.com",
+      "website": "https://duncanaviation.aero",
+      "contact": "HR Department",
+      "airport": "LNK",
+      "memberSince": 1956,
+      "hiring": true,
+      "openingsCount": 15,
+      "positionTypes": [
+        "Avionics Technician",
+        "A&P Mechanic",
+        "Inspector",
+        "Project Manager"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Relocation Assistance",
+        "Training",
+        "Tuition Reimbursement",
+        "Health Insurance",
+        "401k"
+      ],
+      "companySize": "Large (50+)",
+      "specializations": [
+        "Garmin",
+        "Collins",
+        "Honeywell",
+        "Gulfstream",
+        "Falcon",
+        "Challenger"
+      ],
+      "shifts": [
+        "Day",
+        "Night"
+      ],
+      "salaryRange": "55000-85000",
+      "lat": 41.12537,
+      "lng": -98.268082
+    },
+    {
+      "id": 3,
+      "name": "StandardAero",
+      "type": "MRO",
+      "address": "2024 Air Cargo Rd",
+      "city": "Wichita",
+      "state": "KS",
+      "zip": "67209",
+      "phone": "(316) 636-9200",
+      "email": "recruiting@standardaero.com",
+      "website": "https://standardaero.com",
+      "contact": "Talent Acquisition",
+      "airport": "ICT",
+      "memberSince": 1984,
+      "hiring": true,
+      "openingsCount": 12,
+      "positionTypes": [
+        "Avionics Technician",
+        "A&P Mechanic",
+        "NDT Inspector"
+      ],
+      "experienceLevel": "1-2 years",
+      "benefits": [
+        "Relocation Assistance",
+        "Health Insurance",
+        "401k",
+        "Tuition Reimbursement"
+      ],
+      "companySize": "Large (50+)",
+      "specializations": [
+        "Honeywell",
+        "Collins",
+        "Pratt & Whitney"
+      ],
+      "shifts": [
+        "Day",
+        "Night",
+        "Weekend"
+      ],
+      "salaryRange": "50000-75000",
+      "lat": 38.5266,
+      "lng": -96.726486
+    },
+    {
+      "id": 4,
+      "name": "Sarasota Avionics International",
+      "type": "Repair Station",
+      "address": "8191 N Tamiami Trail",
+      "city": "Sarasota",
+      "state": "FL",
+      "zip": "34243",
+      "phone": "(941) 355-1995",
+      "email": "jobs@sarasotaavionics.com",
+      "website": "https://sarasotaavionics.com",
+      "contact": "Mike Thompson",
+      "airport": "SRQ",
+      "memberSince": 1988,
+      "hiring": true,
+      "openingsCount": 3,
+      "positionTypes": [
+        "Avionics Technician",
+        "Bench Tech"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Training",
+        "Health Insurance"
+      ],
+      "companySize": "Medium (11-50)",
+      "specializations": [
+        "Garmin",
+        "Aspen",
+        "Avidyne",
+        "King Air",
+        "Cirrus"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "48000-65000",
+      "lat": 27.766279,
+      "lng": -81.686783
+    },
+    {
+      "id": 5,
+      "name": "Elliott Aviation",
+      "type": "MRO",
+      "address": "1601 N Harrison St",
+      "city": "Moline",
+      "state": "IL",
+      "zip": "61265",
+      "phone": "(309) 799-3183",
+      "email": "hr@elliottaviation.com",
+      "website": "https://elliottaviation.com",
+      "contact": "Human Resources",
+      "airport": "MLI",
+      "memberSince": 1936,
+      "hiring": true,
+      "openingsCount": 8,
+      "positionTypes": [
+        "Avionics Technician",
+        "A&P Mechanic",
+        "Composite Tech"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Relocation Assistance",
+        "Training",
+        "Health Insurance",
+        "401k"
+      ],
+      "companySize": "Large (50+)",
+      "specializations": [
+        "Garmin",
+        "Collins",
+        "Gulfstream",
+        "Citation",
+        "King Air"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "52000-78000",
+      "lat": 40.349457,
+      "lng": -88.986137
+    },
+    {
+      "id": 6,
+      "name": "Wipaire Inc",
+      "type": "OEM",
+      "address": "1700 Henry Ave",
+      "city": "South St Paul",
+      "state": "MN",
+      "zip": "55075",
+      "phone": "(651) 451-1205",
+      "email": "info@wipaire.com",
+      "website": "https://wipaire.com",
+      "contact": "Chuck Wiplinger",
+      "airport": "SGS",
+      "memberSince": 1960,
+      "hiring": false,
+      "openingsCount": 0,
+      "positionTypes": [],
+      "experienceLevel": null,
+      "benefits": [],
+      "companySize": "Medium (11-50)",
+      "specializations": [
+        "Floats",
+        "Caravan",
+        "Cessna"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": null,
+      "lat": 45.694454,
+      "lng": -93.900192
+    },
+    {
+      "id": 7,
+      "name": "Pacific Coast Avionics",
+      "type": "Dealer",
+      "address": "725 Airpark Rd",
+      "city": "Livermore",
+      "state": "CA",
+      "zip": "94551",
+      "phone": "(925) 456-3437",
+      "email": "sales@pacificcoastavionics.com",
+      "website": "https://pacificcoastavionics.com",
+      "contact": "Sales Team",
+      "airport": "LVK",
+      "memberSince": 1995,
+      "hiring": false,
+      "openingsCount": 0,
+      "positionTypes": [],
+      "experienceLevel": null,
+      "benefits": [],
+      "companySize": "Small (1-10)",
+      "specializations": [
+        "Garmin",
+        "Avidyne",
+        "Aspen"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": null,
+      "lat": 36.116203,
+      "lng": -119.681564
+    },
+    {
+      "id": 8,
+      "name": "Cutter Aviation",
+      "type": "Repair Station",
+      "address": "2802 E Old Tower Rd",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "85034",
+      "phone": "(602) 273-1237",
+      "email": "info@cutteraviation.com",
+      "website": "https://cutteraviation.com",
+      "contact": "Will Cutter",
+      "airport": "PHX",
+      "memberSince": 1928,
+      "hiring": true,
+      "openingsCount": 4,
+      "positionTypes": [
+        "Avionics Technician",
+        "A&P Mechanic"
+      ],
+      "experienceLevel": "1-2 years",
+      "benefits": [
+        "Health Insurance",
+        "401k"
+      ],
+      "companySize": "Medium (11-50)",
+      "specializations": [
+        "Garmin",
+        "Collins",
+        "Honeywell",
+        "Citation",
+        "King Air"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "50000-70000",
+      "lat": 33.729759,
+      "lng": -111.431221
+    },
+    {
+      "id": 9,
+      "name": "Gulfstream Aerospace",
+      "type": "OEM",
+      "address": "500 Gulfstream Rd",
+      "city": "Savannah",
+      "state": "GA",
+      "zip": "31407",
+      "phone": "(912) 965-3000",
+      "email": "careers@gulfstream.com",
+      "website": "https://gulfstream.com",
+      "contact": "Talent Team",
+      "airport": "SAV",
+      "memberSince": 1958,
+      "hiring": true,
+      "openingsCount": 25,
+      "positionTypes": [
+        "Avionics Technician",
+        "Systems Engineer",
+        "Quality Inspector",
+        "A&P Mechanic"
+      ],
+      "experienceLevel": "3-5 years",
+      "benefits": [
+        "Relocation Assistance",
+        "Training",
+        "Tuition Reimbursement",
+        "Health Insurance",
+        "401k",
+        "Bonus"
+      ],
+      "companySize": "Large (50+)",
+      "specializations": [
+        "Gulfstream",
+        "Collins",
+        "Honeywell"
+      ],
+      "shifts": [
+        "Day",
+        "Night",
+        "Weekend"
+      ],
+      "salaryRange": "65000-95000",
+      "lat": 33.040619,
+      "lng": -83.643074
+    },
+    {
+      "id": 10,
+      "name": "West Star Aviation",
+      "type": "MRO",
+      "address": "2555 Airport Dr",
+      "city": "Grand Junction",
+      "state": "CO",
+      "zip": "81506",
+      "phone": "(970) 243-7500",
+      "email": "careers@weststaraviation.com",
+      "website": "https://weststaraviation.com",
+      "contact": "HR Team",
+      "airport": "GJT",
+      "memberSince": 1947,
+      "hiring": true,
+      "openingsCount": 10,
+      "positionTypes": [
+        "Avionics Technician",
+        "A&P Mechanic",
+        "Interior Tech"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Relocation Assistance",
+        "Training",
+        "Health Insurance",
+        "401k"
+      ],
+      "companySize": "Large (50+)",
+      "specializations": [
+        "Garmin",
+        "Collins",
+        "Honeywell",
+        "Falcon",
+        "Challenger",
+        "Hawker"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "55000-80000",
+      "lat": 39.059811,
+      "lng": -105.311104
+    },
+    {
+      "id": 11,
+      "name": "Banyan Air Service",
+      "type": "Repair Station",
+      "address": "5360 NW 20th Terrace",
+      "city": "Fort Lauderdale",
+      "state": "FL",
+      "zip": "33309",
+      "phone": "(954) 491-3170",
+      "email": "jobs@banyanair.com",
+      "website": "https://banyanair.com",
+      "contact": "Don Campion",
+      "airport": "FXE",
+      "memberSince": 1979,
+      "hiring": false,
+      "openingsCount": 0,
+      "positionTypes": [],
+      "experienceLevel": null,
+      "benefits": [],
+      "companySize": "Medium (11-50)",
+      "specializations": [
+        "Garmin",
+        "Collins",
+        "Citation",
+        "King Air"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": null,
+      "lat": 27.766279,
+      "lng": -81.686783
+    },
+    {
+      "id": 12,
+      "name": "Stevens Aerospace and Defense",
+      "type": "Repair Station",
+      "address": "1501 Perimeter Rd",
+      "city": "Greenville",
+      "state": "SC",
+      "zip": "29605",
+      "phone": "(864) 242-4272",
+      "email": "hr@stevensaerospace.com",
+      "website": "https://stevensaerospace.com",
+      "contact": "HR Department",
+      "airport": "GMU",
+      "memberSince": 1946,
+      "hiring": true,
+      "openingsCount": 6,
+      "positionTypes": [
+        "Avionics Technician",
+        "A&P Mechanic",
+        "Sheet Metal Tech"
+      ],
+      "experienceLevel": "1-2 years",
+      "benefits": [
+        "Training",
+        "Health Insurance",
+        "401k"
+      ],
+      "companySize": "Large (50+)",
+      "specializations": [
+        "Collins",
+        "Honeywell",
+        "Gulfstream",
+        "Citation",
+        "Hawker"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "52000-72000",
+      "lat": 33.856892,
+      "lng": -80.945007
+    },
+    {
+      "id": 13,
+      "name": "Jet Aviation",
+      "type": "MRO",
+      "address": "200 Riser Rd",
+      "city": "Teterboro",
+      "state": "NJ",
+      "zip": "07608",
+      "phone": "(201) 462-4100",
+      "email": "jobs.usa@jetaviation.com",
+      "website": "https://jetaviation.com",
+      "contact": "Recruiting Team",
+      "airport": "TEB",
+      "memberSince": 1967,
+      "hiring": true,
+      "openingsCount": 8,
+      "positionTypes": [
+        "Avionics Technician",
+        "A&P Mechanic",
+        "Line Service"
+      ],
+      "experienceLevel": "3-5 years",
+      "benefits": [
+        "Relocation Assistance",
+        "Health Insurance",
+        "401k"
+      ],
+      "companySize": "Large (50+)",
+      "specializations": [
+        "Collins",
+        "Honeywell",
+        "Gulfstream",
+        "Falcon",
+        "Global Express"
+      ],
+      "shifts": [
+        "Day",
+        "Night"
+      ],
+      "salaryRange": "60000-90000",
+      "lat": 40.298904,
+      "lng": -74.521011
+    },
+    {
+      "id": 14,
+      "name": "Premier Avionics",
+      "type": "Repair Station",
+      "address": "8601 General Aviation Dr",
+      "city": "Fort Worth",
+      "state": "TX",
+      "zip": "76118",
+      "phone": "(817) 788-0990",
+      "email": "info@premieravionics.com",
+      "website": "https://premieravionics.com",
+      "contact": "Bob Henderson",
+      "airport": "AFW",
+      "memberSince": 1992,
+      "hiring": true,
+      "openingsCount": 3,
+      "positionTypes": [
+        "Avionics Technician",
+        "Installer"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Training",
+        "Health Insurance"
+      ],
+      "companySize": "Small (1-10)",
+      "specializations": [
+        "Garmin",
+        "Aspen",
+        "King Air",
+        "Cirrus",
+        "Pilatus"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "45000-62000",
+      "lat": 31.054487,
+      "lng": -97.563461
+    },
+    {
+      "id": 15,
+      "name": "Piedmont Propulsion Systems",
+      "type": "Repair Station",
+      "address": "1540 Turfway Rd",
+      "city": "Winston-Salem",
+      "state": "NC",
+      "zip": "27103",
+      "phone": "(336) 725-1001",
+      "email": "careers@piedmontpropulsion.com",
+      "website": "https://piedmontpropulsion.com",
+      "contact": "HR Manager",
+      "airport": "INT",
+      "memberSince": 1958,
+      "hiring": false,
+      "openingsCount": 0,
+      "positionTypes": [],
+      "experienceLevel": null,
+      "benefits": [],
+      "companySize": "Medium (11-50)",
+      "specializations": [
+        "Pratt & Whitney",
+        "Collins"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": null,
+      "lat": 35.630066,
+      "lng": -79.806419
+    },
+    {
+      "id": 16,
+      "name": "Maxcraft Avionics Ltd",
+      "type": "Repair Station",
+      "address": "5550 Airport Rd S",
+      "city": "Pitt Meadows",
+      "state": "BC",
+      "zip": "V3Y 2B1",
+      "phone": "(604) 465-3080",
+      "email": "info@maxcraft.ca",
+      "website": "https://maxcraft.ca",
+      "contact": "Mike Farnsworth",
+      "airport": "CYPK",
+      "memberSince": 1997,
+      "hiring": true,
+      "openingsCount": 2,
+      "positionTypes": [
+        "Avionics Technician",
+        "Installer"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Training",
+        "Health Insurance"
+      ],
+      "companySize": "Small (1-10)",
+      "specializations": [
+        "Garmin",
+        "Avidyne",
+        "Aspen",
+        "Floatplanes"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "50000-68000",
+      "lat": 53.726669,
+      "lng": -127.647621
+    },
+    {
+      "id": 17,
+      "name": "Flightcraft Inc",
+      "type": "Repair Station",
+      "address": "7605 NE Airport Way",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "97218",
+      "phone": "(503) 460-7600",
+      "email": "hr@flightcraft.com",
+      "website": "https://flightcraft.com",
+      "contact": "HR Team",
+      "airport": "PDX",
+      "memberSince": 1947,
+      "hiring": true,
+      "openingsCount": 5,
+      "positionTypes": [
+        "Avionics Technician",
+        "A&P Mechanic",
+        "Line Service"
+      ],
+      "experienceLevel": "1-2 years",
+      "benefits": [
+        "Health Insurance",
+        "401k"
+      ],
+      "companySize": "Medium (11-50)",
+      "specializations": [
+        "Garmin",
+        "Collins",
+        "King Air",
+        "Citation"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "48000-68000",
+      "lat": 44.572021,
+      "lng": -122.070938
+    },
+    {
+      "id": 18,
+      "name": "Central Flying Service",
+      "type": "Repair Station",
+      "address": "1500 Bond Ave",
+      "city": "Little Rock",
+      "state": "AR",
+      "zip": "72202",
+      "phone": "(501) 375-3245",
+      "email": "info@centralflying.com",
+      "website": "https://centralflying.com",
+      "contact": "Operations",
+      "airport": "LIT",
+      "memberSince": 1942,
+      "hiring": true,
+      "openingsCount": 3,
+      "positionTypes": [
+        "Avionics Technician",
+        "A&P Mechanic"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Training",
+        "Health Insurance"
+      ],
+      "companySize": "Medium (11-50)",
+      "specializations": [
+        "Garmin",
+        "Collins",
+        "King Air"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": "45000-60000",
+      "lat": 34.969704,
+      "lng": -92.373123
+    },
+    {
+      "id": 19,
+      "name": "Atlantic Aviation",
+      "type": "Repair Station",
+      "address": "300 International Dr",
+      "city": "Morristown",
+      "state": "NJ",
+      "zip": "07960",
+      "phone": "(973) 538-9600",
+      "email": "careers@atlanticaviation.com",
+      "website": "https://atlanticaviation.com",
+      "contact": "HR Department",
+      "airport": "MMU",
+      "memberSince": 2004,
+      "hiring": true,
+      "openingsCount": 4,
+      "positionTypes": [
+        "Line Service Tech",
+        "A&P Mechanic",
+        "Avionics Tech"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Health Insurance",
+        "401k"
+      ],
+      "companySize": "Large (50+)",
+      "specializations": [
+        "Multi-brand",
+        "FBO Services"
+      ],
+      "shifts": [
+        "Day",
+        "Night"
+      ],
+      "salaryRange": "42000-65000",
+      "lat": 40.298904,
+      "lng": -74.521011
+    },
+    {
+      "id": 20,
+      "name": "Skytech Inc",
+      "type": "Dealer",
+      "address": "100 Airport Dr",
+      "city": "Westminster",
+      "state": "MD",
+      "zip": "21157",
+      "phone": "(410) 574-4144",
+      "email": "info@skytechinc.com",
+      "website": "https://skytechinc.com",
+      "contact": "John Foster",
+      "airport": "DMW",
+      "memberSince": 1976,
+      "hiring": false,
+      "openingsCount": 0,
+      "positionTypes": [],
+      "experienceLevel": null,
+      "benefits": [],
+      "companySize": "Medium (11-50)",
+      "specializations": [
+        "Pilatus",
+        "Garmin",
+        "Collins"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": null,
+      "lat": 39.063946,
+      "lng": -76.802101
+    }
+  ],
+  "metadata": {
+    "totalShops": 20,
+    "uniqueStates": 18,
+    "hiringCount": 15,
+    "totalOpenings": 110,
+    "lastUpdated": "2026-01-07T19:57:21.097Z"
+  }
+}
