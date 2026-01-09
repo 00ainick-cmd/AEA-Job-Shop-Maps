@@ -100,10 +100,10 @@
       hiringHtml = `<span class="popup-hiring">${openingsText}</span>`;
     }
 
-    // Location with airport code
+    // Location with airport code (linked to iFlightPlanner)
     const locationParts = [`${escapeHtml(shop.city)}, ${escapeHtml(shop.state)}`];
     if (shop.airport) {
-      locationParts.push(`<span class="popup-airport">${escapeHtml(shop.airport)}</span>`);
+      locationParts.push(`<a href="https://www.iflightplanner.com/Airports/${encodeURIComponent(shop.airport)}" target="_blank" rel="noopener" class="popup-airport">${escapeHtml(shop.airport)}</a>`);
     }
     const locationHtml = locationParts.join(' ');
 
@@ -286,7 +286,7 @@
     }
 
     const airportBadge = shop.airport
-      ? `<span class="shop-card-airport">${escapeHtml(shop.airport)}</span>`
+      ? `<a href="https://www.iflightplanner.com/Airports/${encodeURIComponent(shop.airport)}" target="_blank" rel="noopener" class="shop-card-airport">${escapeHtml(shop.airport)}</a>`
       : '';
 
     // Position types preview
@@ -341,7 +341,9 @@
     shopList.innerHTML = sortedShops.map(shop => createShopCard(shop)).join('');
 
     shopList.querySelectorAll('.shop-card').forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (e) => {
+        // Don't zoom if clicking the airport link
+        if (e.target.closest('.shop-card-airport')) return;
         const shopId = parseInt(card.dataset.shopId, 10);
         zoomToShop(shopId);
       });
