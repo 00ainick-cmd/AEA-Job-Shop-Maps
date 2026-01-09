@@ -69,14 +69,14 @@ const STATE_CENTROIDS = {
 };
 
 /**
- * Geocode an address using Nominatim
- * @param {string} address - Full address string
+ * Geocode a query using Nominatim
+ * @param {string} query - Search query (address, airport, etc.)
  * @returns {Promise<{lat: number, lng: number}|null>} Coordinates or null
  */
-async function geocodeAddress(address) {
+async function geocodeQuery(query) {
   try {
     const params = new URLSearchParams({
-      q: address,
+      q: query,
       format: 'json',
       limit: '1',
       countrycodes: 'us,ca'
@@ -89,14 +89,13 @@ async function geocodeAddress(address) {
     });
 
     if (!response.ok) {
-      console.warn(`Geocode HTTP error for: ${address}`);
+      console.warn(`Geocode HTTP error for: ${query}`);
       return null;
     }
 
     const data = await response.json();
 
     if (!data || data.length === 0) {
-      console.warn(`No geocode results for: ${address}`);
       return null;
     }
 
@@ -105,9 +104,32 @@ async function geocodeAddress(address) {
       lng: parseFloat(data[0].lon)
     };
   } catch (error) {
-    console.error(`Geocode error for ${address}:`, error.message);
+    console.error(`Geocode error for ${query}:`, error.message);
     return null;
   }
+}
+
+/**
+ * Geocode an airport by its ICAO/FAA code
+ * @param {string} airportCode - Airport code (e.g., "SPW", "KLNK")
+ * @param {string} state - State code for context
+ * @returns {Promise<{lat: number, lng: number}|null>} Coordinates or null
+ */
+async function geocodeAirport(airportCode, state) {
+  if (!airportCode) return null;
+
+  // Try with "airport" suffix and state for better accuracy
+  const query = `${airportCode} airport ${state}`;
+  return geocodeQuery(query);
+}
+
+/**
+ * Geocode an address using Nominatim
+ * @param {string} address - Full address string
+ * @returns {Promise<{lat: number, lng: number}|null>} Coordinates or null
+ */
+async function geocodeAddress(address) {
+  return geocodeQuery(address);
 }
 
 /**
@@ -129,6 +151,8 @@ function sleep(ms) {
 }
 
 module.exports = {
+  geocodeQuery,
+  geocodeAirport,
   geocodeAddress,
   getStateCentroid,
   STATE_CENTROIDS,

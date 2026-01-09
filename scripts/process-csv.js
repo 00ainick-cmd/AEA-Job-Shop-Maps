@@ -8,7 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 const { parse } = require('csv-parse/sync');
-const { geocodeAddress, getStateCentroid, sleep } = require('./geocode');
+const { geocodeAirport, geocodeAddress, getStateCentroid, sleep } = require('./geocode');
 
 const INPUT_CSV = path.join(__dirname, '..', 'data', 'raw', 'aea_members.csv');
 const OUTPUT_JSON = path.join(__dirname, '..', 'data', 'shops.json');
@@ -149,8 +149,13 @@ async function processCSV() {
 
   for (let i = 0; i < records.length; i++) {
     const record = records[i];
+    const airportCode = record.airport ? record.airport.trim().toUpperCase() : null;
     const fullAddress = `${record.address}, ${record.city}, ${record.state} ${record.zip || ''}`.trim();
-    const cacheKey = fullAddress.toLowerCase();
+
+    // Cache key includes airport code if available for better cache hits
+    const cacheKey = airportCode
+      ? `airport:${airportCode}:${record.state}`.toLowerCase()
+      : fullAddress.toLowerCase();
 
     let coords = null;
 
@@ -159,19 +164,37 @@ async function processCSV() {
     } else if (cache[cacheKey]) {
       coords = cache[cacheKey];
     } else {
-      coords = await geocodeAddress(fullAddress);
-      if (coords) {
-        cache[cacheKey] = coords;
-      } else {
-        coords = await geocodeAddress(`${record.city}, ${record.state}`);
+      // Strategy: Airport code first, then address, then city, then state centroid
+      if (airportCode) {
+        coords = await geocodeAirport(airportCode, record.state);
         if (coords) {
-          cache[cacheKey] = coords;
-        } else {
-          coords = getStateCentroid(record.state);
+          console.log(`  ✓ Geocoded airport ${airportCode}`);
         }
         await sleep(1100);
       }
-      await sleep(1100);
+
+      if (!coords) {
+        coords = await geocodeAddress(fullAddress);
+        if (coords) {
+          console.log(`  ✓ Geocoded address: ${record.city}, ${record.state}`);
+        }
+        await sleep(1100);
+      }
+
+      if (!coords) {
+        coords = await geocodeAddress(`${record.city}, ${record.state}`);
+        if (coords) {
+          console.log(`  ✓ Geocoded city: ${record.city}, ${record.state}`);
+        }
+        await sleep(1100);
+      }
+
+      if (!coords) {
+        coords = getStateCentroid(record.state);
+        console.log(`  ⚠ Using state centroid for: ${record.name}`);
+      }
+
+      cache[cacheKey] = coords;
     }
 
     shops.push({
