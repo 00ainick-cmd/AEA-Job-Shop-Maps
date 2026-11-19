@@ -8,9 +8,9 @@ Interactive map to help aviation technicians and job seekers find AEA member avi
 - Filter by state and hiring status
 - Visual indicators for shops currently hiring (pulsing green ring)
 - Detailed job information: positions, experience level, salary range, benefits
-- A profile page for every shop (`shop.html`) with photos, a description, kinds of work, open positions, benefits, a section for schools, a location map, and the nearest member shops
+- A profile page for every shop (`shop.html`) with photos, a description, kinds of work, open positions, benefits, a work-based learning section, a location map, and the nearest member shops
 - Each profile has its own link that the shop or a school can share
-- "Works with schools" filter for instructors looking for tours, internships and apprenticeships
+- "Offers work-based learning" filter for instructors looking for tours, job shadows, internships and apprenticeships
 - Sidebar with sortable shop list (hiring shops shown first)
 - Click-to-zoom from sidebar to map
 - Mobile-responsive design
@@ -103,7 +103,7 @@ Each shop record supports:
 | about | Two or three sentences the shop writes about itself |
 | employeeCount | Number of people at this location |
 | services | Kinds of work (installations, bench repair, and so on) |
-| schoolPrograms | How the shop works with schools (tours, interns, apprentices) |
+| schoolPrograms | Work-based learning the shop offers (tours, job shadows, internships, apprenticeship) |
 | schoolNote | One sentence for instructors before they call |
 | photos | Files in `photos/` or full https links |
 

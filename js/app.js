@@ -184,7 +184,7 @@
 
     // Working with schools
     const schoolsHtml = shop.schoolPrograms?.length
-      ? `<div class="popup-row popup-schools"><span class="popup-label">Schools:</span> ${shop.schoolPrograms.map(s => escapeHtml(s)).join(', ')}</div>`
+      ? `<div class="popup-row popup-schools"><span class="popup-label">Work-based learning:</span> ${shop.schoolPrograms.map(s => escapeHtml(s)).join(', ')}</div>`
       : '';
 
     const profileHtml = `<div class="popup-row"><a href="${shopProfileUrl(shop)}" class="popup-profile-btn">View shop profile</a></div>`;

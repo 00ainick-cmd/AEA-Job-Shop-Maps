@@ -98,7 +98,7 @@
       const line = n ? `${n} open position${n > 1 ? 's' : ''}` : 'Open positions';
       hiring = `<div class="status status-hiring"><span class="status-dot"></span><div><strong>Hiring now</strong><span>${esc(line)}</span></div></div>`;
     } else {
-      hiring = `<div class="status"><span class="status-dot"></span><div><strong>Not hiring right now</strong><span>The shop may still host tours or interns.</span></div></div>`;
+      hiring = `<div class="status"><span class="status-dot"></span><div><strong>Not hiring right now</strong><span>The shop may still offer work-based learning.</span></div></div>`;
     }
 
     const facts = [];
@@ -165,8 +165,8 @@
     const schools = shop.schoolPrograms && shop.schoolPrograms.length
       ? tags(shop.schoolPrograms, 'tags-school') +
         (shop.schoolNote ? `<p class="about">${esc(shop.schoolNote)}</p>` : '')
-      : '<p class="quiet">This shop has not said yet how it works with schools. Instructors can still contact it about tours, guest speakers and internships.</p>';
-    out.push(section('For schools and instructors', schools, 'schools'));
+      : '<p class="quiet">This shop has not listed its work-based learning opportunities yet. Instructors can still contact it about tours, job shadows and internships.</p>';
+    out.push(section('Work-based learning for students', schools, 'schools'));
 
     return out.join('');
   }

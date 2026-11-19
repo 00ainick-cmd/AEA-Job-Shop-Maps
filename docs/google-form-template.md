@@ -238,22 +238,24 @@ Each shop gets its own profile page. These answers fill it.
 
 ---
 
-## Section 6: Working with Schools
+## Section 6: Work-Based Learning
 
-Schools and instructors use the map to find shops near them.
+Schools and instructors use the map to find shops near them that take students.
 
-### Question 26: How does your shop work with schools?
+### Question 26: Which work-based learning opportunities does your shop offer?
 - Type: Checkboxes
 - Required: No
 - Description: "Select all that apply"
 - Options:
-  - Hosts class tours
-  - Takes interns
-  - Trains apprentices
-  - Hires CAET holders
+  - Shop tours
+  - Job shadows
+  - Internships
+  - Registered apprenticeship
+  - Part-time or summer jobs for students
   - Guest speakers
   - Serves on a school advisory committee
   - Donates equipment or materials
+  - Hires CAET holders
 
 ### Question 27: Anything a school should know before contacting you?
 - Type: Short answer
@@ -307,7 +309,7 @@ Schools and instructors use the map to find shops near them.
 | How many people work at this location? | employeeCount |
 | What kinds of work does your shop do? | services |
 | Photos of your shop | photos |
-| How does your shop work with schools? | schoolPrograms |
+| Which work-based learning opportunities does your shop offer? | schoolPrograms |
 | Anything a school should know | schoolNote |
 
 **Note**: For checkbox questions, Google Forms outputs comma-separated values. The processor handles this automatically.
@@ -333,7 +335,7 @@ Your listing will include:
 - Current hiring status and open positions
 - Benefits and specializations
 - A profile page with photos of your shop and the kinds of work you do
-- How schools near you can connect with your shop
+- The work-based learning you offer, so schools near you can send students
 
 The map will be available on aerocareers.net as a free resource for the aviation community.
 
