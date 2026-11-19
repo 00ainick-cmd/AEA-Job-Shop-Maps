@@ -5,7 +5,7 @@
 (function() {
   'use strict';
 
-  const { SHOP_TYPES, MAP_CONFIG, CLUSTER_CONFIG } = window.AEAConfig;
+  const { SHOP_TYPES, MAP_CONFIG, CLUSTER_CONFIG, SAMPLE_NOTICE, shopProfileUrl, safePhotoUrl } = window.AEAConfig;
 
   let map = null;
   let markerCluster = null;
@@ -176,6 +176,19 @@
 
     contactHtml += '</div>';
 
+    // First photo, when the shop has sent any
+    const firstPhoto = (shop.photos || []).map(safePhotoUrl).find(Boolean);
+    const photoHtml = firstPhoto
+      ? `<img class="popup-photo" src="${escapeHtml(firstPhoto)}" alt="${escapeHtml(shop.name)}" loading="lazy">`
+      : '';
+
+    // Working with schools
+    const schoolsHtml = shop.schoolPrograms?.length
+      ? `<div class="popup-row popup-schools"><span class="popup-label">Schools:</span> ${shop.schoolPrograms.map(s => escapeHtml(s)).join(', ')}</div>`
+      : '';
+
+    const profileHtml = `<div class="popup-row"><a href="${shopProfileUrl(shop)}" class="popup-profile-btn">View shop profile</a></div>`;
+
     // Member since
     const memberSinceHtml = shop.memberSince
       ? `<div class="popup-member-since">AEA Member since ${shop.memberSince}</div>`
@@ -183,6 +196,7 @@
 
     return `
       <div class="popup-content">
+        ${photoHtml}
         <div class="popup-header">
           <h3 class="popup-name">${escapeHtml(shop.name)}</h3>
           ${hiringHtml}
@@ -194,6 +208,8 @@
         ${jobDetailsHtml}
         ${benefitsHtml}
         ${companyInfoHtml}
+        ${schoolsHtml}
+        ${profileHtml}
         ${contactHtml}
         ${memberSinceHtml}
       </div>
@@ -318,6 +334,7 @@
         <div class="shop-card-location">${escapeHtml(shop.city)}, ${escapeHtml(shop.state)}</div>
         ${positionsHtml}
         ${detailsHtml}
+        <a href="${shopProfileUrl(shop)}" class="shop-card-profile">View profile</a>
       </div>
     `;
   }
@@ -343,7 +360,7 @@
     shopList.querySelectorAll('.shop-card').forEach(card => {
       card.addEventListener('click', (e) => {
         // Don't zoom if clicking the airport link
-        if (e.target.closest('.shop-card-airport')) return;
+        if (e.target.closest('.shop-card-airport') || e.target.closest('.shop-card-profile')) return;
         const shopId = parseInt(card.dataset.shopId, 10);
         zoomToShop(shopId);
       });
@@ -372,6 +389,8 @@
 
     const selectedState = stateFilter ? stateFilter.value : 'all';
     const hiringOnly = hiringFilter ? hiringFilter.checked : false;
+    const schoolsFilter = document.getElementById('schools-filter');
+    const schoolsOnly = schoolsFilter ? schoolsFilter.checked : false;
 
     return allShops.filter(shop => {
       if (selectedState !== 'all' && shop.state !== selectedState) {
@@ -379,6 +398,10 @@
       }
 
       if (hiringOnly && !shop.hiring) {
+        return false;
+      }
+
+      if (schoolsOnly && !(shop.schoolPrograms && shop.schoolPrograms.length)) {
         return false;
       }
 
@@ -409,6 +432,11 @@
 
     if (hiringFilter) {
       hiringFilter.addEventListener('change', applyFilters);
+    }
+
+    const schoolsFilter = document.getElementById('schools-filter');
+    if (schoolsFilter) {
+      schoolsFilter.addEventListener('change', applyFilters);
     }
   }
 
@@ -445,6 +473,13 @@
 
       const data = await loadShopData();
       allShops = data.shops;
+
+      const banner = document.getElementById('sample-banner');
+      if (banner && data.metadata && data.metadata.sample) {
+        banner.textContent = SAMPLE_NOTICE;
+        banner.hidden = false;
+        map.invalidateSize();
+      }
 
       populateStateFilter(allShops);
       initFilters();

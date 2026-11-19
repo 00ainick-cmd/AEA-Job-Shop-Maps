@@ -34,8 +34,9 @@
         "Day"
       ],
       "salaryRange": "45000-60000",
-      "lat": 42.011539,
-      "lng": -93.210526
+      "lat": 43.14155,
+      "lng": -95.14775,
+      "geocodeSource": "city"
     },
     {
       "id": 2,
@@ -81,8 +82,9 @@
         "Night"
       ],
       "salaryRange": "55000-85000",
-      "lat": 41.12537,
-      "lng": -98.268082
+      "lat": 40.80889,
+      "lng": -96.70778,
+      "geocodeSource": "city"
     },
     {
       "id": 3,
@@ -124,8 +126,9 @@
         "Weekend"
       ],
       "salaryRange": "50000-75000",
-      "lat": 38.5266,
-      "lng": -96.726486
+      "lat": 37.69224,
+      "lng": -97.33754,
+      "geocodeSource": "city"
     },
     {
       "id": 4,
@@ -164,8 +167,9 @@
         "Day"
       ],
       "salaryRange": "48000-65000",
-      "lat": 27.766279,
-      "lng": -81.686783
+      "lat": 27.33658,
+      "lng": -82.53085,
+      "geocodeSource": "city"
     },
     {
       "id": 5,
@@ -207,8 +211,9 @@
         "Day"
       ],
       "salaryRange": "52000-78000",
-      "lat": 40.349457,
-      "lng": -88.986137
+      "lat": 41.50661,
+      "lng": -90.515,
+      "geocodeSource": "city"
     },
     {
       "id": 6,
@@ -239,8 +244,9 @@
         "Day"
       ],
       "salaryRange": null,
-      "lat": 45.694454,
-      "lng": -93.900192
+      "lat": 44.86153,
+      "lng": -93.03097,
+      "geocodeSource": "address"
     },
     {
       "id": 7,
@@ -271,8 +277,9 @@
         "Day"
       ],
       "salaryRange": null,
-      "lat": 36.116203,
-      "lng": -119.681564
+      "lat": 37.68206,
+      "lng": -121.76805,
+      "geocodeSource": "city"
     },
     {
       "id": 8,
@@ -311,8 +318,9 @@
         "Day"
       ],
       "salaryRange": "50000-70000",
-      "lat": 33.729759,
-      "lng": -111.431221
+      "lat": 33.42502,
+      "lng": -112.02082,
+      "geocodeSource": "address"
     },
     {
       "id": 9,
@@ -357,8 +365,9 @@
         "Weekend"
       ],
       "salaryRange": "65000-95000",
-      "lat": 33.040619,
-      "lng": -83.643074
+      "lat": 32.14119,
+      "lng": -81.20551,
+      "geocodeSource": "address"
     },
     {
       "id": 10,
@@ -401,8 +410,9 @@
         "Day"
       ],
       "salaryRange": "55000-80000",
-      "lat": 39.059811,
-      "lng": -105.311104
+      "lat": 39.06726,
+      "lng": -108.56448,
+      "geocodeSource": "city"
     },
     {
       "id": 11,
@@ -434,8 +444,9 @@
         "Day"
       ],
       "salaryRange": null,
-      "lat": 27.766279,
-      "lng": -81.686783
+      "lat": 26.12231,
+      "lng": -80.14338,
+      "geocodeSource": "city"
     },
     {
       "id": 12,
@@ -476,8 +487,9 @@
         "Day"
       ],
       "salaryRange": "52000-72000",
-      "lat": 33.856892,
-      "lng": -80.945007
+      "lat": 34.74176,
+      "lng": -82.36036,
+      "geocodeSource": "address"
     },
     {
       "id": 13,
@@ -519,8 +531,9 @@
         "Night"
       ],
       "salaryRange": "60000-90000",
-      "lat": 40.298904,
-      "lng": -74.521011
+      "lat": 40.85982,
+      "lng": -74.05931,
+      "geocodeSource": "city"
     },
     {
       "id": 14,
@@ -559,8 +572,9 @@
         "Day"
       ],
       "salaryRange": "45000-62000",
-      "lat": 31.054487,
-      "lng": -97.563461
+      "lat": 32.75318,
+      "lng": -97.33275,
+      "geocodeSource": "city"
     },
     {
       "id": 15,
@@ -590,8 +604,9 @@
         "Day"
       ],
       "salaryRange": null,
-      "lat": 35.630066,
-      "lng": -79.806419
+      "lat": 36.09981,
+      "lng": -80.24405,
+      "geocodeSource": "city"
     },
     {
       "id": 16,
@@ -629,8 +644,9 @@
         "Day"
       ],
       "salaryRange": "50000-68000",
-      "lat": 53.726669,
-      "lng": -127.647621
+      "lat": 49.22076,
+      "lng": -122.69015,
+      "geocodeSource": "city"
     },
     {
       "id": 17,
@@ -669,8 +685,9 @@
         "Day"
       ],
       "salaryRange": "48000-68000",
-      "lat": 44.572021,
-      "lng": -122.070938
+      "lat": 45.52025,
+      "lng": -122.67419,
+      "geocodeSource": "city"
     },
     {
       "id": 18,
@@ -707,8 +724,9 @@
         "Day"
       ],
       "salaryRange": "45000-60000",
-      "lat": 34.969704,
-      "lng": -92.373123
+      "lat": 34.74651,
+      "lng": -92.28963,
+      "geocodeSource": "city"
     },
     {
       "id": 19,
@@ -746,8 +764,9 @@
         "Night"
       ],
       "salaryRange": "42000-65000",
-      "lat": 40.298904,
-      "lng": -74.521011
+      "lat": 40.79704,
+      "lng": -74.48099,
+      "geocodeSource": "city"
     },
     {
       "id": 20,
@@ -778,15 +797,80 @@
         "Day"
       ],
       "salaryRange": null,
-      "lat": 39.063946,
-      "lng": -76.802101
+      "lat": 39.6071,
+      "lng": -76.99882,
+      "geocodeSource": "address"
+    },
+    {
+      "id": 21,
+      "name": "Example Avionics (sample profile)",
+      "type": "Repair Station",
+      "address": "",
+      "city": "Lee's Summit",
+      "state": "MO",
+      "zip": "",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "contact": null,
+      "airport": "LXT",
+      "memberSince": null,
+      "hiring": true,
+      "openingsCount": 2,
+      "positionTypes": [
+        "Avionics Technician",
+        "Avionics Installer"
+      ],
+      "experienceLevel": "Entry-level",
+      "benefits": [
+        "Health Insurance",
+        "Paid Time Off",
+        "Training Programs",
+        "Tool Allowance"
+      ],
+      "companySize": "Small (1-10)",
+      "employeeCount": 9,
+      "specializations": [
+        "Garmin",
+        "Avidyne",
+        "Citation/Cessna",
+        "King Air/Beechcraft"
+      ],
+      "shifts": [
+        "Day"
+      ],
+      "salaryRange": null,
+      "about": "This is a sample profile that shows what a member shop can publish. A real profile holds two or three sentences the shop writes about itself: the aircraft it works on, the size of the team, and what a new technician does in the first year.",
+      "services": [
+        "Avionics installations",
+        "Autopilot repair",
+        "Pitot-static and transponder checks",
+        "Wire harness fabrication",
+        "Troubleshooting"
+      ],
+      "schoolPrograms": [
+        "Hosts class tours",
+        "Takes interns",
+        "Trains apprentices",
+        "Hires CAET holders",
+        "Guest speakers"
+      ],
+      "schoolNote": "A real profile can add a sentence here, such as the months when the shop takes interns or the person an instructor should call.",
+      "photos": [
+        "photos/sample/hangar.svg",
+        "photos/sample/bench.svg",
+        "photos/sample/team.svg"
+      ],
+      "lat": 38.9597,
+      "lng": -94.3714
     }
   ],
   "metadata": {
-    "totalShops": 20,
-    "uniqueStates": 18,
-    "hiringCount": 15,
-    "totalOpenings": 110,
-    "lastUpdated": "2026-01-07T19:57:21.097Z"
+    "totalShops": 21,
+    "uniqueStates": 19,
+    "hiringCount": 16,
+    "totalOpenings": 112,
+    "lastUpdated": "2026-01-07T19:57:21.097Z",
+    "sample": true
   }
 }

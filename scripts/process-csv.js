@@ -86,6 +86,15 @@ function parseList(value) {
     .filter(item => item.length > 0);
 }
 
+// Photo paths and links can contain commas, so they are split on semicolons and new lines only.
+function parsePhotos(value) {
+  if (!value) return [];
+  return value.toString()
+    .split(/[;\n]/)
+    .map(item => item.trim())
+    .filter(item => item.length > 0);
+}
+
 function normalizeExperienceLevel(level) {
   if (!level) return null;
   const normalized = level.toString().trim().toLowerCase();
@@ -221,6 +230,13 @@ async function processCSV() {
       specializations: parseList(record.specializations),
       shifts: parseList(record.shifts),
       salaryRange: record.salaryRange ? record.salaryRange.trim() : null,
+      // Shop profile fields
+      about: record.about ? record.about.trim() : null,
+      employeeCount: parseNumber(record.employeeCount),
+      services: parseList(record.services),
+      schoolPrograms: parseList(record.schoolPrograms),
+      schoolNote: record.schoolNote ? record.schoolNote.trim() : null,
+      photos: parsePhotos(record.photos),
       // Coordinates
       lat: coords.lat,
       lng: coords.lng
@@ -248,6 +264,7 @@ async function processCSV() {
       uniqueStates: uniqueStates.length,
       hiringCount: hiringCount,
       totalOpenings: totalOpenings,
+      sample: false,
       lastUpdated: new Date().toISOString()
     }
   };

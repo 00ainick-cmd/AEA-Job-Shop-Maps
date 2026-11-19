@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Sample photo: hangar">
+<rect width="1200" height="800" fill="#dfe7f1"/>
+<rect y="560" width="1200" height="240" fill="#c3cfdd"/>
+<path d="M140 560 V330 Q600 120 1060 330 V560 Z" fill="#f4f7fb" stroke="#8496ad" stroke-width="6"/>
+<path d="M260 560 V380 Q600 240 940 380 V560 Z" fill="#2c5282"/>
+<g fill="#f4f7fb"><ellipse cx="600" cy="470" rx="150" ry="26"/><rect x="380" y="462" width="440" height="16" rx="8"/><path d="M720 470 l70 -70 h22 l-40 70 z"/><circle cx="470" cy="470" r="34" fill="none" stroke="#f4f7fb" stroke-width="6"/></g>
+<rect x="560" y="496" width="10" height="44" fill="#f4f7fb"/><rect x="640" y="496" width="10" height="44" fill="#f4f7fb"/>
+<rect x="32" y="716" width="316" height="52" rx="8" fill="#1a365d"/>
+<text x="52" y="750" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#ffffff">Sample photo: hangar</text>
+</svg>

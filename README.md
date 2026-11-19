@@ -8,6 +8,9 @@ Interactive map to help aviation technicians and job seekers find AEA member avi
 - Filter by state and hiring status
 - Visual indicators for shops currently hiring (pulsing green ring)
 - Detailed job information: positions, experience level, salary range, benefits
+- A profile page for every shop (`shop.html`) with photos, a description, kinds of work, open positions, benefits, a section for schools, a location map, and the nearest member shops
+- Each profile has its own link that the shop or a school can share
+- "Works with schools" filter for instructors looking for tours, internships and apprenticeships
 - Sidebar with sortable shop list (hiring shops shown first)
 - Click-to-zoom from sidebar to map
 - Mobile-responsive design
@@ -56,7 +59,9 @@ See `docs/google-form-template.md` for a ready-to-use Google Form template. The 
 ```
 aea-shop-map/
 ├── index.html          # Main application
+├── shop.html           # Shop profile page
 ├── admin.html          # Admin page for data management
+├── photos/             # Shop photos, one folder per shop
 ├── css/
 │   └── styles.css      # All styling
 ├── js/
@@ -91,11 +96,28 @@ Each shop record supports:
 | specializations | Equipment/aircraft types |
 | memberSince | Year joined AEA |
 
+### Shop profile fields
+
+| Field | Description |
+|-------|-------------|
+| about | Two or three sentences the shop writes about itself |
+| employeeCount | Number of people at this location |
+| services | Kinds of work (installations, bench repair, and so on) |
+| schoolPrograms | How the shop works with schools (tours, interns, apprentices) |
+| schoolNote | One sentence for instructors before they call |
+| photos | Files in `photos/` or full https links |
+
+All profile fields are optional. A profile shows only the sections a shop has filled in.
+
+## Sample data
+
+`data/shops.json` is currently marked `"sample": true` in its metadata, which shows a yellow notice on the map and on every profile. The hiring details in it have not been confirmed by the shops, and "Example Avionics (sample profile)" is not a real company. Data produced by the admin page or the processing script is marked `"sample": false`, so the notice disappears once real member responses replace the sample file.
+
 ## Technology
 
 - [Leaflet.js](https://leafletjs.com/) - Interactive maps
 - [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) - Marker clustering
-- [CartoDB Positron](https://carto.com/basemaps/) - Clean, minimal map tiles
+- [OpenStreetMap](https://www.openstreetmap.org/) - Map background (free, no key required)
 - Vanilla JavaScript - No framework dependencies
 
 ## License

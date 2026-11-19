@@ -1,0 +1,368 @@
+/* ============================================
+   AEA Career Finder - Shop profile page
+   Flexbox layout, no fixed viewport heights, page scrolls.
+   ============================================ */
+
+:root {
+  --navy: #1a365d;
+  --navy-light: #2c5282;
+  --gold: #ecc94b;
+  --hiring: #2f855a;
+  --hiring-bg: #e6f4ec;
+  --school: #2c5282;
+  --school-bg: #e8f0fa;
+  --bg: #f4f6f9;
+  --white: #ffffff;
+  --border: #dde3ea;
+  --text: #1f2a37;
+  --text-light: #5b6776;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a { color: var(--navy-light); }
+
+/* Top bar */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: var(--navy);
+  color: var(--white);
+  padding: 14px 24px;
+}
+
+.bar-back {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.bar-back:hover, .bar-back:focus-visible { text-decoration: underline; }
+
+.bar-title { font-size: 14px; opacity: 0.85; }
+
+.sample-banner {
+  background: #fefcbf;
+  color: #744210;
+  border-bottom: 1px solid var(--gold);
+  padding: 8px 24px;
+  font-size: 13px;
+}
+
+.sample-banner[hidden] { display: none; }
+
+/* Main column */
+.profile {
+  flex: 1;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.loading { color: var(--text-light); }
+
+/* Hero: photos beside the shop's identity */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.gallery {
+  flex: 3 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gallery-main {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 10px;
+  background: var(--bg);
+}
+
+.thumbs { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.thumb {
+  flex: 0 0 96px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.thumb.is-on { border-color: var(--navy); }
+.thumb:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.gallery-empty-box {
+  flex: 1;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  padding: 24px;
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  color: var(--text-light);
+}
+
+.gallery-empty-box p { margin: 0; }
+.gallery-empty-title { font-weight: 600; color: var(--text); }
+
+.ident {
+  flex: 2 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.type {
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.ident h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+.where { margin: 0; color: var(--text-light); }
+
+.airport {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.status {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--bg);
+}
+
+.status div { display: flex; flex-direction: column; }
+.status span { color: var(--text-light); font-size: 13px; }
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #a0aec0;
+  flex-shrink: 0;
+}
+
+.status-hiring { background: var(--hiring-bg); }
+.status-hiring strong { color: var(--hiring); }
+.status-hiring .status-dot { background: var(--hiring); box-shadow: 0 0 0 4px rgba(47, 133, 90, 0.2); }
+
+.facts {
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0;
+}
+
+.facts div { display: flex; flex-direction: column; }
+.facts dt { font-size: 12px; color: var(--text-light); }
+.facts dd { margin: 0; font-weight: 600; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.btn {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover { border-color: var(--navy-light); }
+.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.btn-primary { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.btn-primary:hover { background: var(--navy-light); }
+.btn-quiet { border-style: dashed; font-weight: 500; color: var(--text-light); }
+
+.copied { margin: 0; min-height: 1.2em; font-size: 13px; color: var(--text-light); }
+.contact-name { margin: 0; font-size: 13px; color: var(--text-light); }
+
+/* Two columns under the hero */
+.cols { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.col-main { flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.col-side { flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+
+.block {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.block h2 { margin: 0 0 10px; font-size: 17px; }
+.block h3 { margin: 14px 0 8px; font-size: 13px; font-weight: 600; color: var(--text-light); }
+.block h3:first-of-type { margin-top: 0; }
+
+.about { margin: 0; }
+.tags + .about { margin-top: 12px; }
+.quiet { margin: 0; color: var(--text-light); }
+
+.tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tags li {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #eef2f6;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tags-plain li { background: var(--white); border: 1px solid var(--border); }
+.tags-benefit li { background: var(--hiring-bg); color: #22543d; }
+.tags-school li { background: var(--school-bg); color: var(--school); }
+
+#schools { border-left: 4px solid var(--navy-light); }
+
+.rows { margin: 0; display: flex; flex-direction: column; }
+
+.rows div {
+  display: flex;
+  gap: 16px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.rows div:first-child { border-top: none; padding-top: 0; }
+.rows dt { flex: 0 0 110px; color: var(--text-light); font-size: 13px; }
+.rows dd { margin: 0; flex: 1; font-weight: 500; }
+
+.mini-map {
+  width: 100%;
+  min-height: 240px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg);
+  z-index: 0;
+}
+
+.address { margin: 10px 0 0; font-size: 13px; color: var(--text-light); }
+
+.nearby { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+
+.nearby li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+
+.nearby li:first-child { border-top: none; padding-top: 0; }
+.nearby a { display: flex; flex-direction: column; text-decoration: none; min-width: 0; }
+.nearby-name { font-weight: 600; }
+.nearby a:hover .nearby-name { text-decoration: underline; }
+.nearby-meta { font-size: 12px; color: var(--text-light); }
+.nearby-miles { flex-shrink: 0; font-size: 13px; font-weight: 600; color: var(--text-light); }
+
+.notfound {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.notfound h1 { margin: 0; font-size: 22px; }
+.notfound p { margin: 0; color: var(--text-light); }
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 16px 24px 28px;
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.foot[hidden] { display: none; }
+.foot span:empty { display: none; }
+
+@media (max-width: 640px) {
+  .profile { padding: 14px; gap: 16px; }
+  .hero { padding: 14px; }
+  .ident h1 { font-size: 23px; }
+  .rows dt { flex-basis: 90px; }
+}

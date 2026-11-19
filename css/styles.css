@@ -769,3 +769,53 @@ body {
   .popup-content { padding: 12px; }
   .popup-name { font-size: 14px; }
 }
+
+/* ============================================
+   Shop profiles, schools filter, sample notice
+   ============================================ */
+
+.sample-banner {
+  background: #fefcbf;
+  color: #744210;
+  border-bottom: 1px solid #ecc94b;
+  padding: 8px 20px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.sample-banner[hidden] { display: none; }
+
+.popup-photo {
+  display: block;
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: var(--color-bg);
+}
+
+.popup-profile-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 7px 14px;
+  background: var(--color-primary);
+  color: var(--color-white) !important;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.popup-profile-btn:hover { background: var(--color-primary-light); }
+
+.shop-card-profile {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary-light);
+  text-decoration: none;
+}
+
+.shop-card-profile:hover { text-decoration: underline; }

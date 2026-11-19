@@ -200,6 +200,68 @@ Help job seekers find your shop! Complete this form to be listed on the AEA Memb
 
 ---
 
+## Section 5: Shop Profile
+
+Each shop gets its own profile page. These answers fill it.
+
+### Question 22: Tell students and job seekers about your shop
+- Type: Paragraph
+- Required: No
+- Description: "Two or three sentences. What aircraft do you work on, how big is the team, and what does a new technician do in the first year?"
+
+### Question 23: How many people work at this location?
+- Type: Short answer
+- Required: No
+- Validation: Number
+
+### Question 24: What kinds of work does your shop do?
+- Type: Checkboxes
+- Required: No
+- Description: "Select all that apply"
+- Options:
+  - Avionics installations
+  - Bench repair
+  - Autopilot repair
+  - Pitot-static and transponder checks
+  - Wire harness fabrication
+  - Troubleshooting
+  - Connectivity and cabin systems
+  - Instrument overhaul
+  - Airframe and powerplant maintenance
+  - Other (please specify)
+
+### Question 25: Photos of your shop
+- Type: File upload (images, up to 5 files)
+- Required: No
+- Description: "The hangar, the bench, the team, or a recent installation. Send only photos you have permission to publish, and leave out customer tail numbers if the owner has not agreed."
+- Note for AEA staff: file upload questions require the member to sign in to Google. If that is a barrier, ask members to email photos instead.
+
+---
+
+## Section 6: Working with Schools
+
+Schools and instructors use the map to find shops near them.
+
+### Question 26: How does your shop work with schools?
+- Type: Checkboxes
+- Required: No
+- Description: "Select all that apply"
+- Options:
+  - Hosts class tours
+  - Takes interns
+  - Trains apprentices
+  - Hires CAET holders
+  - Guest speakers
+  - Serves on a school advisory committee
+  - Donates equipment or materials
+
+### Question 27: Anything a school should know before contacting you?
+- Type: Short answer
+- Required: No
+- Description: "For example, the months you take interns, or the person an instructor should ask for."
+
+---
+
 ## Form Settings Recommendations
 
 1. **Collect email addresses**: Yes (for follow-up)
@@ -241,8 +303,16 @@ Help job seekers find your shop! Complete this form to be listed on the AEA Memb
 | Benefits offered | benefits |
 | Company size | companySize |
 | Aircraft/equipment specializations | specializations |
+| Tell students and job seekers about your shop | about |
+| How many people work at this location? | employeeCount |
+| What kinds of work does your shop do? | services |
+| Photos of your shop | photos |
+| How does your shop work with schools? | schoolPrograms |
+| Anything a school should know | schoolNote |
 
 **Note**: For checkbox questions, Google Forms outputs comma-separated values. The processor handles this automatically.
+
+**Photos**: Google Forms saves uploaded photos to a Drive folder and puts Drive links in the spreadsheet. Those links do not display on a web page. Copy each shop's photos into `photos/<shop-name>/` in this project and replace the links in the `photos` column with the file paths, separated by semicolons. See `photos/README.md`.
 
 ---
 
@@ -262,6 +332,8 @@ Your listing will include:
 - Contact information for job seekers
 - Current hiring status and open positions
 - Benefits and specializations
+- A profile page with photos of your shop and the kinds of work you do
+- How schools near you can connect with your shop
 
 The map will be available on aerocareers.net as a free resource for the aviation community.
 

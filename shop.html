@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop profile | AEA Career Finder</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+  <div class="page">
+    <header class="bar">
+      <a class="bar-back" href="index.html">&larr; All shops on the map</a>
+      <span class="bar-title">AEA Career Finder</span>
+    </header>
+
+    <div class="sample-banner" id="sample-banner" role="note" hidden></div>
+
+    <main class="profile" id="profile" aria-live="polite">
+      <p class="loading" id="loading">Loading the shop profile.</p>
+    </main>
+
+    <footer class="foot" id="foot" hidden>
+      <span id="foot-update"></span>
+      <span>Listings come from AEA member shops. Contact the shop directly about openings, tours and internships.</span>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="js/config.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
