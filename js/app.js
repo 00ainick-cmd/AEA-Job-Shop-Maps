@@ -5,7 +5,7 @@
 (function() {
   'use strict';
 
-  const { SHOP_TYPES, MAP_CONFIG, CLUSTER_CONFIG, SAMPLE_NOTICE, shopProfileUrl, safePhotoUrl } = window.AEAConfig;
+  const { SHOP_TYPES, MAP_CONFIG, CLUSTER_CONFIG, SAMPLE_NOTICE, shopProfileUrl, shopPlace, shopRegion, safePhotoUrl } = window.AEAConfig;
 
   let map = null;
   let markerCluster = null;
@@ -101,7 +101,7 @@
     }
 
     // Location with airport code (linked to iFlightPlanner)
-    const locationParts = [`${escapeHtml(shop.city)}, ${escapeHtml(shop.state)}`];
+    const locationParts = [escapeHtml(shopPlace(shop))];
     if (shop.airport) {
       locationParts.push(`<a href="https://www.iflightplanner.com/Airports/${encodeURIComponent(shop.airport)}" target="_blank" rel="noopener" class="popup-airport">${escapeHtml(shop.airport)}</a>`);
     }
@@ -276,9 +276,14 @@
     const stateFilter = document.getElementById('state-filter');
     if (!stateFilter) return;
 
-    const states = [...new Set(shops.map(s => s.state))].sort();
+    const regions = [...new Set(shops.map(shopRegion))].filter(Boolean);
+    // State and province codes first, then countries outside the US and Canada.
+    const states = [
+      ...regions.filter(r => r.length <= 3).sort(),
+      ...regions.filter(r => r.length > 3).sort()
+    ];
 
-    stateFilter.innerHTML = '<option value="all">All States</option>';
+    stateFilter.innerHTML = '<option value="all">All locations</option>';
 
     states.forEach(state => {
       const option = document.createElement('option');
@@ -331,7 +336,7 @@
           <span class="shop-card-type ${typeClass}">${escapeHtml(shop.type)}</span>
           ${airportBadge}
         </div>
-        <div class="shop-card-location">${escapeHtml(shop.city)}, ${escapeHtml(shop.state)}</div>
+        <div class="shop-card-location">${escapeHtml(shopPlace(shop))}</div>
         ${positionsHtml}
         ${detailsHtml}
         <a href="${shopProfileUrl(shop)}" class="shop-card-profile">View profile</a>
@@ -350,7 +355,7 @@
 
     // Sort: hiring first, then by openings count, then by name
     const sortedShops = [...shops].sort((a, b) => {
-      if (a.hiring !== b.hiring) return b.hiring - a.hiring;
+      if (!!a.hiring !== !!b.hiring) return (b.hiring ? 1 : 0) - (a.hiring ? 1 : 0);
       if (a.openingsCount !== b.openingsCount) return (b.openingsCount || 0) - (a.openingsCount || 0);
       return a.name.localeCompare(b.name);
     });
@@ -393,7 +398,7 @@
     const schoolsOnly = schoolsFilter ? schoolsFilter.checked : false;
 
     return allShops.filter(shop => {
-      if (selectedState !== 'all' && shop.state !== selectedState) {
+      if (selectedState !== 'all' && shopRegion(shop) !== selectedState) {
         return false;
       }
 

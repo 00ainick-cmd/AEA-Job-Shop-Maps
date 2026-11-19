@@ -31,6 +31,12 @@ build/
 
 # Raw data (keep processed data, not raw source files)
 data/raw/
+*.xlsx
+*.xls
+data/geocode_cache.json
+
+# Local preview settings
+.claude/
 
 # Local server files
 .serve/

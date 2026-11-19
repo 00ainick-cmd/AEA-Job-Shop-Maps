@@ -11,7 +11,7 @@
 
   const {
     SHOP_TYPES, MAP_CONFIG, PROFILE_FORM_URL, SAMPLE_NOTICE,
-    shopSlug, shopProfileUrl, safePhotoUrl, safeWebUrl
+    shopSlug, shopProfileUrl, shopPlace, safePhotoUrl, safeWebUrl
   } = window.AEAConfig;
 
   const EARTH_RADIUS_MILES = 3958.8;
@@ -87,7 +87,7 @@
 
   function identHtml(shop) {
     const type = SHOP_TYPES[shop.type] || SHOP_TYPES['Repair Station'];
-    const where = [shop.city, shop.state].filter(Boolean).join(', ');
+    const where = shopPlace(shop);
     const airport = shop.airport
       ? ` <a class="airport" href="https://www.iflightplanner.com/Airports/${encodeURIComponent(shop.airport)}" target="_blank" rel="noopener">${esc(shop.airport)}</a>`
       : '';
@@ -97,6 +97,9 @@
       const n = shop.openingsCount;
       const line = n ? `${n} open position${n > 1 ? 's' : ''}` : 'Open positions';
       hiring = `<div class="status status-hiring"><span class="status-dot"></span><div><strong>Hiring now</strong><span>${esc(line)}</span></div></div>`;
+    } else if (shop.hiring === null || shop.hiring === undefined) {
+      // The shop has not answered the member form, so nothing is claimed either way.
+      hiring = `<div class="status"><span class="status-dot"></span><div><strong>Hiring status not listed yet</strong><span>Contact the shop to ask about open positions.</span></div></div>`;
     } else {
       hiring = `<div class="status"><span class="status-dot"></span><div><strong>Not hiring right now</strong><span>The shop may still offer work-based learning.</span></div></div>`;
     }
@@ -172,7 +175,7 @@
   }
 
   function sideHtml(shop, nearby) {
-    const address = [shop.address, [shop.city, shop.state].filter(Boolean).join(', '), shop.zip]
+    const address = [shop.address, shopPlace(shop), shop.zip]
       .filter(Boolean).join(' · ');
 
     const nearbyHtml = nearby.length
@@ -180,7 +183,7 @@
           <li>
             <a href="${shopProfileUrl(n.shop)}">
               <span class="nearby-name">${esc(n.shop.name)}</span>
-              <span class="nearby-meta">${esc(n.shop.city)}, ${esc(n.shop.state)}${n.shop.hiring ? ' · hiring' : ''}</span>
+              <span class="nearby-meta">${esc(shopPlace(n.shop))}${n.shop.hiring ? ' · hiring' : ''}</span>
             </a>
             <span class="nearby-miles">${Math.round(n.miles)} mi</span>
           </li>`).join('')}</ul>`

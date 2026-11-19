@@ -45,6 +45,24 @@ function shopProfileUrl(shop) {
   return 'shop.html?shop=' + encodeURIComponent(shopSlug(shop));
 }
 
+const HOME_COUNTRIES = ['', 'united states', 'usa', 'us', 'canada'];
+
+function isHomeCountry(shop) {
+  return HOME_COUNTRIES.includes((shop.country || '').trim().toLowerCase());
+}
+
+/** "Lincoln, NE" for the US and Canada, "Sydney, NSW, Australia" elsewhere. */
+function shopPlace(shop) {
+  const parts = [shop.city, shop.state];
+  if (!isHomeCountry(shop)) parts.push(shop.country);
+  return parts.filter(Boolean).join(', ');
+}
+
+/** What the location filter groups by: state or province at home, country elsewhere. */
+function shopRegion(shop) {
+  return isHomeCountry(shop) ? (shop.state || '') : shop.country;
+}
+
 /** Photos may be files in the photos/ folder or full https links. Anything else is ignored. */
 function safePhotoUrl(value) {
   if (typeof value !== 'string') return null;
@@ -70,5 +88,5 @@ const CLUSTER_CONFIG = {
 
 window.AEAConfig = {
   SHOP_TYPES, MAP_CONFIG, CLUSTER_CONFIG, PROFILE_FORM_URL, SAMPLE_NOTICE,
-  shopSlug, shopProfileUrl, safePhotoUrl, safeWebUrl
+  shopSlug, shopProfileUrl, shopPlace, shopRegion, safePhotoUrl, safeWebUrl
 };
